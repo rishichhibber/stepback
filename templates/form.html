@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+div#content {
+    display: none;
+    }
+
+div#loading {
+    top: 200 px;
+    margin: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 160px;
+    height: 24px;
+    cursor: wait;
+    }
+
+</style>
+
+<head>
+	<script type="text/javascript">// <![CDATA[
+        function preloader(){
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }//preloader
+        window.onload = preloader;
+// ]]></script>
+<script type="text/javascript">// <![CDATA[
+	function loading(){
+		document.getElementById("loading").style.display = "block";
+        document.getElementById("content").style.display = "none";
+	}
+// ]]></script>
+
+</head>
+
+<body>
+    <div id="loading">
+		<img src="static/loading_icon.gif"></img>
+	</div>
+    <div id="content">
+        <h1>Ever wonder how your comment history on reddit stack up?</h1>
+        <img src="static/boy.jpeg" width="256"></img>
+        <img src="static/girl.jpeg" width="256"></img>
+        <p>	
+		<form action="{{ url_for("gfg")}}" method="post">
+			<label for="firstname">Reddit User Name:</label>
+			<input type="text" id="firstname" name="fname" placeholder="firstname">
+			<button type="submit" onclick="loading();">GO</button>
+			<!-- input type="submit" name="anything_submit" value="Submit" onclick="loading();" -->
+		</form>
+	</div>
+</body>
+</html>

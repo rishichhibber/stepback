@@ -1,0 +1,38 @@
+<html >
+    <head >
+		<h1 > Sentiment Analysis of last {{limit}} comments by {{username}} on Reddit</h1>
+	</head >
+	<body >
+		<div>
+			<div id = "simple_chart"></div>
+		</div >
+		<script type = "text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type = "text/javascript">
+			google.charts.load('current', {'packages': ['corechart']});
+			google.charts.setOnLoadCallback(drawCharts);
+
+			function drawCharts() {
+				var data = new google.visualization.DataTable()
+                data.addColumn('string', 'Sentiment')
+                data.addColumn('number', 'Percentage');
+                data.addRows([
+                    ['{{e0}}', {{p0}}],
+                    ['{{e1}}', {{p1}}],
+                    ['{{e2}}', {{p2}}],
+                    ['{{e3}}', {{p3}}],
+                    ['{{e4}}', {{p4}}],
+                    ['{{e5}}', {{p5}}]
+                ]);
+
+                var options = {
+                    'width': '900',
+                    'height': '900',
+                    'pieHole': '0.4',
+                    'slices': '{ 0: {offset: 0.2}}'
+                };
+                var simple_chart = new google.visualization.PieChart(document.getElementById('simple_chart'));
+                simple_chart.draw(data, options);
+            }
+		</script >
+	</body >
+</html >
